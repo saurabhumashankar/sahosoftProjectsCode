@@ -1,0 +1,105 @@
+ <p>{{"topbar-title" | translate}}</p>
+<p>{{"Call-Us" | translate}}</p>
+
+<ul>
+    <li (click)="changeLang('en')"> English </li>
+    <li (click)="changeLang('hi')"> Hindi </li>
+</ul> 
+
+
+
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let student of Students">
+  <h1>{{ student.name }}</h1>  
+  <br>
+  <img width="500px" height="500px" [src]="student.image" />  
+
+    </div>
+</ngx-slick-carousel>
+
+
+
+===========================================================================================================
+
+   constructor(private _translate: TranslateService) {
+    _translate.addLangs(['en', 'hi']);
+     _translate.setDefaultLang('en');
+  }
+   changeLang(language: string) {
+     this._translate.use(language);
+ }
+  Students = [
+    {
+      name: "A",
+      image: "assets/images/demo/1.jpg"
+
+    },
+    {
+      name: "B",
+      image: "assets/images/demo/2.jpg"
+
+    },
+    {
+      name: "C",
+      image: "assets/images/demo/3.jpg"
+
+    },
+    {
+      name: "D",
+      image: "assets/images/demo/4.jpg"
+
+    },
+    {
+      name: "E",
+      image: "assets/images/demo/5.jpg"
+
+    },
+    {
+      name: "F",
+      image: "assets/images/demo/6.jpg"
+
+    },
+    {
+      name: "G",
+      image: "assets/images/demo/7.jpg"
+
+    }
+
+
+  ]
+
+  // slideConfig = {
+  //   infinite: true,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 3,
+  //   dots: true,
+  //   autoplay:true
+//}
+
+slideConfig = {
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  dots: true,
+  autoplay:true,
+  responsive: [
+    {
+
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+       
+      }
+
+    }, {
+
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+        
+      }
+
+  }]
+}

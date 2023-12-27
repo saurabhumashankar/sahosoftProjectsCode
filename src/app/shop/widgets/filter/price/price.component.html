@@ -1,0 +1,10 @@
+<div class="collection-collapse-block border-0 open">
+    <h3 class="collapse-block-title" id="priceToggleId"  >price</h3>
+    <div class="collection-collapse-block-content" id="priceToggle">
+        <div class="collection-brand-filter">
+            <div class="mt-5">
+                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="selectPrice($event)"></ng5-slider>
+            </div>
+        </div>
+    </div>
+</div>
